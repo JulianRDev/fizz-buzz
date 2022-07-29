@@ -46,13 +46,9 @@ class AnalysisTest {
   @ParameterizedTest
   @ValueSource(ints = {-1, -3, -5, -15})
   void analyze_negative(int value) {
-    assertThrows(IllegalArgumentException.class, new Executable() {
-
-      @Override
-      public void execute() throws Throwable {
-        analysis.analyze(value);
-      }
-    });
+    //expression lambda(anonymous function)
+    // lambda limited to functional interfaces
+    assertThrows(IllegalArgumentException.class, () -> analysis.analyze(value));
   }
 
 }
